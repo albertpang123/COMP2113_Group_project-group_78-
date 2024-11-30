@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall
 OBJS = main.o game.o
-TARGET = hangman
+TARGET = duel
 
 all: $(TARGET)
 
