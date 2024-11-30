@@ -1,10 +1,8 @@
-Team Members:
+1.Team Members:
 Pang Wang Pok (UID: 3036181795)
 
-
-
-
-Title:
+2.Title:
+Duel of the Words
 
 
 
