@@ -1,23 +1,25 @@
 #include "game.h"
 
-HangmanGame::HangmanGame(int maxAttempts, bool isSinglePlayer)
+using namespace std;
+
+DuelGame::DuelGame(int maxAttempts, bool isSinglePlayer)
     : maxAttempts(maxAttempts), remainingAttempts(maxAttempts), isSinglePlayer(isSinglePlayer) {}
 
-void HangmanGame::setSecretWord(const std::string &word) {
+void DuelGame::setSecretWord(const string &word) {
     secretWord = word;
-    currentWord = std::string(secretWord.size(), '_');
+    currentWord = string(secretWord.size(), '_');
     guessedLetters.clear();
 }
 
-bool HangmanGame::loadRandomWord(const std::string &filename) {
-    std::ifstream file(filename);
+bool DuelGame::loadRandomWord(const string &filename) {
+    ifstream file(filename);
     if (!file) {
-        std::cerr << "Error: Could not open word file: " << filename << std::endl;
+        cerr << "Error: Could not open word file: " << filename << endl;
         return false;
     }
 
-    std::vector<std::string> words;
-    std::string word;
+    vector<string> words;
+    string word;
     while (file >> word) {
         if (word.size() >= 3) {
             words.push_back(word);
@@ -25,7 +27,7 @@ bool HangmanGame::loadRandomWord(const std::string &filename) {
     }
 
     if (words.empty()) {
-        std::cerr << "Error: No valid words found in file." << std::endl;
+        cerr << "Error: No valid words found in file." << endl;
         return false;
     }
 
@@ -36,19 +38,19 @@ bool HangmanGame::loadRandomWord(const std::string &filename) {
     return true;
 }
 
-void HangmanGame::displayState() const {
-    std::cout << "\nCurrent word: ";
+void DuelGame::displayState() const {
+    cout << "\nCurrent word: ";
     for (char c : currentWord) {
-        std::cout << c << " ";
+        cout << c << " ";
     }
-    std::cout << "\nGuessed letters: ";
+    cout << "\nGuessed letters: ";
     for (char c : guessedLetters) {
-        std::cout << c << " ";
+        cout << c << " ";
     }
-    std::cout << "\nRemaining attempts: " << remainingAttempts << "\n";
+    cout << "\nRemaining attempts: " << remainingAttempts << "\n";
 }
 
-void HangmanGame::drawHangman() const {
+void DuelGame::drawCartoonHead() const {
     static const char *stages[] = {
         "", // Stage 0 (no incorrect guesses)
         R"(
@@ -125,14 +127,14 @@ __      __          __      __
 
     int stageIndex = maxAttempts - remainingAttempts;
     if (stageIndex >= 0 && stageIndex < 8) {
-        std::cout << stages[stageIndex] << "\n";
+        cout << stages[stageIndex] << "\n";
     }
 }
 
-bool HangmanGame::playTurn(char guess) {
-    guess = std::tolower(guess);
+bool DuelGame::playTurn(char guess) {
+    guess = tolower(guess);
     if (guessedLetters.count(guess)) {
-        std::cout << "You already guessed that letter. Try again.\n";
+        cout << "You already guessed that letter. Try again.\n";
         return false;
     }
 
@@ -140,7 +142,7 @@ bool HangmanGame::playTurn(char guess) {
     bool correct = false;
 
     for (size_t i = 0; i < secretWord.size(); ++i) {
-        if (std::tolower(secretWord[i]) == guess) {
+        if (tolower(secretWord[i]) == guess) {
             currentWord[i] = secretWord[i];
             correct = true;
         }
@@ -148,31 +150,32 @@ bool HangmanGame::playTurn(char guess) {
 
     if (!correct) {
         --remainingAttempts;
-        std::cout << "Wrong guess!\n";
+        cout << "Wrong guess!\n";
+        drawCartoonHead();
     } else {
-        std::cout << "Correct guess!\n";
+        cout << "Correct guess!\n";
     }
 
     return true;
 }
 
-bool HangmanGame::isGameWon() const {
+bool DuelGame::isGameWon() const {
     return currentWord == secretWord;
 }
 
-bool HangmanGame::isGameLost() const {
+bool DuelGame::isGameLost() const {
     return remainingAttempts <= 0;
 }
 
-void HangmanGame::printResult() const {
+void DuelGame::printResult() const {
     if (isGameWon()) {
-        std::cout << "Congratulations! You guessed the word: " << secretWord << "\n";
+        cout << "Congratulations! You guessed the word: " << secretWord << "\n";
     } else {
-        std::cout << "You lost! The word was: " << secretWord << "\n";
+        cout << "You lost! The word was: " << secretWord << "\n";
     }
 }
 
-void HangmanGame::clearScreen() const {
+void DuelGame::clearScreen() const {
 #ifdef _WIN32
     system("cls");
 #else
