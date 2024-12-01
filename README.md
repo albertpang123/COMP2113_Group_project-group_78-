@@ -68,4 +68,12 @@ Players guess one letter at a time.
     - Makefile: A file for automating the build process.
 
 
-Open the terminal and navigate to the directory containing the game files.
+- Open the terminal and navigate to the directory containing the game files.
+- Use the provided Makefile to compile the program, this will generate an executable named duel.
+- Or use the following command: g++ -std=c++11 -o duel main.cpp game.cpp
+- Run the game by executing the compiled program: ./duel
+- Follow the on-screen menu:
+    - Choose 1 for Single-Player mode.
+    - Choose 2 for Multiplayer mode.
+    - Choose 3 to quit the game.
+  - If you are playing in Single-Player mode, ensure the word.txt file is present and contains valid words.
