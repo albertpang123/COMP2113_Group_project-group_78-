@@ -6,13 +6,47 @@ Duel of the Words
 
 
 
-Description:
+3.Description:
+Duel of the Words is a fun and engaging word-guessing game base on the traditional Hangman game, where players try to guess a hidden word by guessing one letter at a time. The game can be played in single-player mode, where the word is randomly selected from a file, or in multiplayer mode, where one player sets the word, and the other tries to guess it.
+
+The game features a progressive cartoon head drawing that appears as you make incorrect guesses. You have a limited number of attempts to guess the word before the cartoon head is fully drawn—at which point the game is lost!
 
 
-Rules:
+4.Rules:
+The game starts with a hidden word represented by underscores (_), where the number of underscores matches the length of the word.
+Players guess one letter at a time.
+If the guessed letter is in the word, it is revealed in its correct positions.
+If the guessed letter is not in the word, you lose an attempt, and part of the cartoon head is drawn.
+The player wins by guessing all the letters in the word before running out of attempts.
+The player loses if all attempts are used up before the word is fully guessed, and the cartoon head is fully drawn.
+In single-player mode:
+The word is chosen randomly from a file (word.txt).
+In multiplayer mode:
+Player 1 enters the secret word, and Player 2 tries to guess it.
+
+5.Features:
+Game Modes:
+Single-Player Mode: The computer selects a random word for you to guess.
+Multiplayer Mode: One player sets the word, and the other guesses.
+Progressive Cartoon Drawing:
+As incorrect guesses are made, a cartoon head is progressively drawn in seven stages. The game is over when the full cartoon head is complete.
+Hints About the Game State:
+The current state of the word is displayed with revealed letters and underscores for unguessed letters.
+Already guessed letters are displayed to help players avoid repeating guesses.
+Remaining attempts are displayed after each guess.
+Winning and Losing Messages:
+A congratulatory message is shown if you win.
+A losing message reveals the word if you lose.
 
 
-Features:
+6.Compilation and Execution Instructions
+Ensure the following files are in the same directory:
+
+game.h: Header file defining the DuelGame class.
+game.cpp: Implementation of the DuelGame class.
+main.cpp: Entry point of the game.
+word.txt: A text file containing a list of words (used for single-player mode). Each word should be on a separate line.
+Makefile: A file for automating the build process.
 
 
-Compilation and Execution Instructions
+Open the terminal and navigate to the directory containing the game files.
