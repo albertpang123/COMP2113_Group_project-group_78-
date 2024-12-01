@@ -23,9 +23,7 @@ private:
     int remainingAttempts;       // Remaining incorrect guesses allowed
     bool isSinglePlayer;         // Mode: Single-player or Multiplayer
 
-    void displayState() const;        // Display the game state
     void drawCartoonHead() const;     // Display ASCII art for incorrect guesses
-    void clearScreen() const;         // Clear the console screen
 
 public:
     DuelGame(int maxAttempts, bool isSinglePlayer);
@@ -35,6 +33,8 @@ public:
     bool isGameWon() const;                       // Check if the word is guessed
     bool isGameLost() const;                      // Check if attempts are exhausted
     void printResult() const;                     // Print game result
+    void displayState() const;                    // Display the game state (moved to public)
+    void clearScreen() const;                     // Clear the console screen (moved to public)
 };
 
 #endif
