@@ -7,9 +7,9 @@ Duel of the Words
 
 
 3.Description:
-Duel of the Words is a fun and engaging word-guessing game base on the traditional Hangman game, where players try to guess a hidden word by guessing one letter at a time. The game can be played in single-player mode, where the word is randomly selected from a file, or in multiplayer mode, where one player sets the word, and the other tries to guess it.
+(1)Duel of the Words is a fun and engaging word-guessing game base on the traditional Hangman game, where players try to guess a hidden word by guessing one letter at a time. The game can be played in single-player mode, where the word is randomly selected from a file, or in multiplayer mode, where one player sets the word, and the other tries to guess it.
 
-The game features a progressive cartoon head drawing that appears as you make incorrect guesses. You have a limited number of attempts to guess the word before the cartoon head is fully drawn—at which point the game is lost!
+(2)The game features a progressive cartoon head drawing that appears as you make incorrect guesses. You have a limited number of attempts to guess the word before the cartoon head is fully drawn—at which point the game is lost!
 
 
 4.Rules:
