@@ -59,7 +59,7 @@ Players guess one letter at a time.
 
 6. Compilation and Execution Instructions
 
-    - Ensure the following files are in the same directory:
+- Ensure the following files are in the same directory:
 
     - game.h: Header file defining the DuelGame class.
     - game.cpp: Implementation of the DuelGame class.
