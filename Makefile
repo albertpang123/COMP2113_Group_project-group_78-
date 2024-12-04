@@ -1,18 +1,28 @@
+# Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall
-OBJS = main.o game.o
+CXXFLAGS = -std=c++11
+
+# Target executable
 TARGET = duel
 
+# Source files and object files
+SRC = main.cpp game.cpp
+OBJ = $(SRC:.cpp=.o)
+
+# Default target to build the game
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+# Rule to build the executable
+$(TARGET): $(OBJ)
+    $(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJ)
 
-main.o: main.cpp game.h
-	$(CXX) $(CXXFLAGS) -c main.cpp
+# Rule to compile source files into object files
+%.o: %.cpp
+    $(CXX) $(CXXFLAGS) -c $< -o $@
 
-game.o: game.cpp game.h
-	$(CXX) $(CXXFLAGS) -c game.cpp
-
+# Clean up build files
 clean:
-	rm -f $(OBJS) $(TARGET)
+    rm -f $(OBJ) $(TARGET)
+
+# To build specifically the duel target
+duel: $(TARGET)
