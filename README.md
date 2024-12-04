@@ -34,6 +34,7 @@ Players guess one letter at a time.
 
     (6) In single-player mode:
     - The word is chosen randomly from a file (word.txt).
+    - Ensure word.txt has between 10 to 50 words, each with a minimum of 3 letters.
 
     (7) In multiplayer mode:
     - Player 1 enters the secret word, and Player 2 tries to guess it.
