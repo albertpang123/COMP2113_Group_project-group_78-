@@ -74,7 +74,7 @@ Players guess one letter at a time.
 
 
 - Open the terminal and navigate to the directory containing the game files.
-- Use the provided Makefile to compile the program, this will generate an executable named duel.
+- Type "make duel" in the terminal, this will generate an executable named duel.
 - Or use the following command: g++ -std=c++11 -o duel main.cpp game.cpp
 - Run the game by executing the compiled program: ./duel
 - Follow the on-screen menu:
