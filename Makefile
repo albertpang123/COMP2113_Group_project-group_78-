@@ -2,7 +2,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11
 
-# Target executable name
+# Target executable
 TARGET = duel
 
 # Source files
